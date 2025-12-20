@@ -1,9 +1,8 @@
 from pyspark.sql import functions as F
-from pyspark.sql import DataFrame
 from pyspark.sql import Column
 
 def dot_product(col1: Column, 
-                col2: Column):
+                col2: Column) -> Column:
     """
     Compute dot product between two vector columns
     """
