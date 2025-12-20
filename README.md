@@ -1,2 +1,3 @@
 # mlflow.template
-basic kubeflow template
+
+Basic kubeflow template for e2e model on mocked data
