@@ -11,8 +11,10 @@ from components.evaluation.evaluate_model import evaluate_model
 def logistic_regression_pipeline(
     n_samples: int = 1000,
     test_size: float = 0.2,
+    weights: list = [0.5, -0.2, 0.3],
 ):
-    data_task = generate_data(n_samples=n_samples)
+    data_task = generate_data(n_samples=n_samples,
+                              weights=weights)
     split_task = train_test_data_split(
         dataset=data_task.outputs["output_data"],
         test_size=test_size,
