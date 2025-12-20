@@ -6,7 +6,7 @@ import numpy as np
 import joblib
 
 @component(
-    base_image="python:3.12.10",
+    base_image="python:3.12.10-slim",
     packages_to_install=["scikit-learn", "pandas", "joblib"],
 )
 def train_model(

@@ -4,7 +4,7 @@ import joblib
 from sklearn.metrics import roc_auc_score
 
 @component(
-    base_image="python:3.12.10",
+    base_image="python:3.12.10-slim",
     packages_to_install=["pandas", "scikit-learn", "joblib"],
 )
 def evaluate_model(

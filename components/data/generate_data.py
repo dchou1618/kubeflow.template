@@ -4,7 +4,7 @@ import pandas as pd
 from typing import List
 
 @component(
-    base_image="python:3.12.10",
+    base_image="python:3.12.10-slim",
     packages_to_install=["numpy", "pandas"],
 )
 def generate_data(
@@ -22,7 +22,7 @@ def generate_data(
     logits = X @ weights
     probs = 1 / (1 + np.exp(-logits))
     y = (probs >= 0.5).astype(int)
-    
+
     df = pd.DataFrame(X, columns=[f"feature_{i+1}" for i in range(n_features)])
     df["y"] = y
     df.to_csv(output_data.path, index=False)

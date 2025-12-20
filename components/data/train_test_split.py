@@ -4,7 +4,7 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 
 @component(
-    base_image="python:3.12.10",
+    base_image="python:3.12.10-slim",
     packages_to_install=["pandas", "numpy"],
 )
 def train_test_data_split(
