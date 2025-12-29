@@ -2,8 +2,7 @@ name: Run Kubeflow Pipeline on-prem
 
 on:
   push:
-    branches:
-      - main
+    branches: [main, fix-wf]
   workflow_dispatch:
 
 jobs:
