@@ -1,4 +1,4 @@
-from kfp.v2.dsl import component, Dataset
+from kfp.v2.dsl import component, Dataset, Output
 import numpy as np
 import pandas as pd
 from typing import List
@@ -8,7 +8,7 @@ from typing import List
     packages_to_install=["numpy", "pandas"],
 )
 def generate_data(
-    output_data: Dataset,
+    output_data: Output[Dataset],
     weights: List[float],
     n_samples: int = 1000,
     n_features: int = 3,
