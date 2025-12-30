@@ -25,10 +25,10 @@ jobs:
         run: pip install kfp
 
       - name: Compile pipeline
-        run: python3 pipelines/compile_pipeline.py
+        run: python3 -m pipelines.compile_pipeline
 
       - name: Run Kubeflow pipeline trigger script
         env:
           KFP_HOST: ${{ secrets.KFP_HOST }}
           KFP_AUTH_TOKEN: ${{ secrets.KFP_AUTH_TOKEN }}
-        run: python3 pipelines/run_pipeline.py
+        run: python3 -m pipelines.run_pipeline
