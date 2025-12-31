@@ -1,5 +1,5 @@
 from kfp.v2 import compiler 
-from logistic_pipeline import logistic_regression_pipeline
+from pipelines.logistic_pipeline import logistic_regression_pipeline
 
 if __name__ == "__main__":
     compiler.Compiler().compile(
