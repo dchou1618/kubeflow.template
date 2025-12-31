@@ -2,8 +2,7 @@ name: Run Kubeflow Pipeline on-prem
 
 on:
   push:
-    branches:
-      - main
+    branches: [main, minimal_wf]
   workflow_dispatch:
 
 jobs:
@@ -17,19 +16,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.9'
+      - name: Use system Python
+        run: |
+          python3 --version
+          python3 -m pip install --upgrade pip
 
       - name: Install dependencies
         run: pip install kfp
 
       - name: Compile pipeline
-        run: python pipelines/compile_pipeline.py
+        run: python3 -m pipelines.compile_pipeline
 
       - name: Run Kubeflow pipeline trigger script
         env:
           KFP_HOST: ${{ secrets.KFP_HOST }}
-          KFP_AUTH_TOKEN: ${{ secrets.KFP_AUTH_TOKEN }}
-        run: python pipelines/run_pipeline.py
+        run: python3 -m pipelines.run_pipeline
