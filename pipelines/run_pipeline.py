@@ -1,7 +1,7 @@
 import kfp
 import os
 
-client = kfp.Client(host=os.environ['KFP_HOST'])
+client = kfp.Client()
 
 # upload or use existing pipeline
 experiment = client.create_experiment('experiment')

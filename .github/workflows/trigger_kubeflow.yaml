@@ -28,6 +28,4 @@ jobs:
         run: python3 -m pipelines.compile_pipeline
 
       - name: Run Kubeflow pipeline trigger script
-        env:
-          KFP_HOST: ${{ secrets.KFP_HOST }}
         run: python3 -m pipelines.run_pipeline
