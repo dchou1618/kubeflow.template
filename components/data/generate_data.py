@@ -1,6 +1,4 @@
 from kfp.v2.dsl import component, Dataset, Output
-import numpy as np
-import pandas as pd
 from typing import List
 
 @component(
@@ -17,6 +15,8 @@ def generate_data(
     """
     Generates a synthetic dataset for logistic regression with set of given weights
     """
+    import numpy as np
+    import pandas as pd
     np.random.seed(seed)
     X = np.random.randn(n_samples, n_features)
     logits = X @ weights

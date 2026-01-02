@@ -1,9 +1,4 @@
 from kfp.v2.dsl import Input, Output, component, Dataset, Model
-from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import train_test_split
-import pandas as pd
-import numpy as np
-import joblib
 
 @component(
     base_image="python:3.12.10-slim",
@@ -14,8 +9,14 @@ def train_model(
     model: Output[Model],
 ):
     """
-    Trains 
+    Trains logistic regression model
     """
+    from sklearn.linear_model import LogisticRegression
+    from sklearn.model_selection import train_test_split
+    import pandas as pd
+    import numpy as np
+    import joblib
+
     df = pd.read_csv(train_dataset.path)
     X = df.drop(columns=["y"])
     y = df["y"]
