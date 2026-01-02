@@ -1,11 +1,8 @@
 from kfp.v2.dsl import component, Input, Output, Dataset
-import pandas as pd
-import numpy as np
-from sklearn.model_selection import train_test_split
 
 @component(
     base_image="python:3.12.10-slim",
-    packages_to_install=["pandas", "numpy"],
+    packages_to_install=["pandas", "numpy", "scikit-learn"],
 )
 def train_test_data_split(
     dataset: Input[Dataset],
@@ -14,6 +11,9 @@ def train_test_data_split(
     test_size: float = 0.2,
     random_state: int = 42,
 ):
+    import pandas as pd
+    import numpy as np
+    from sklearn.model_selection import train_test_split
     """
     Split dataset into train and test
     """
