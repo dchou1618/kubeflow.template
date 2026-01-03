@@ -2,7 +2,9 @@ name: Run Kubeflow Pipeline on-prem
 
 on:
   push:
-    branches: [main, '*']
+    branches: 
+      - main
+      - 'dchou/**'
   workflow_dispatch:
 
 jobs:
