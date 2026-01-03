@@ -2,7 +2,9 @@ name: Run Kubeflow Pipeline on-prem
 
 on:
   push:
-    branches: [main, minimal_wf]
+    branches: 
+      - main
+      - 'dchou/**'
   workflow_dispatch:
 
 jobs:
@@ -22,7 +24,7 @@ jobs:
           python3 -m pip install --upgrade pip
 
       - name: Install dependencies
-        run: pip install kfp
+        run: pip install -r requirements.txt
 
       - name: Compile pipeline
         run: python3 -m pipelines.compile_pipeline
