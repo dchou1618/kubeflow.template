@@ -20,14 +20,14 @@ jobs:
 
       - name: Use system Python
         run: |
-          python3.12 --version
-          python3.12 -m pip install --upgrade pip
+          python3 --version
+          python3 -m pip install --upgrade pip
 
       - name: Install dependencies
         run: pip install -r requirements.txt
 
       - name: Compile pipeline
-        run: python3.12 -m pipelines.compile_pipeline
+        run: python3 -m pipelines.compile_pipeline
 
       - name: Run Kubeflow pipeline trigger script
-        run: python3.12 -m pipelines.run_pipeline
+        run: python3 -m pipelines.run_pipeline
